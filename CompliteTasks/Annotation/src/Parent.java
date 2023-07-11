@@ -1,6 +1,0 @@
-
-@InheritedAnnotation("Parent")
-class Parent {
-
-
-}
