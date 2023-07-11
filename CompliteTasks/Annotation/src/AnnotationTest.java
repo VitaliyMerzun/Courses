@@ -9,10 +9,10 @@ public class AnnotationTest {
         System.out.println(annotation.num() + " -- " + annotation.str());
 
         Heir1 newDataHeir = new Heir1();
-        Heir1.myMethod();
+        //Heir1.myMethod();
 
         Heir2 oldDataHeir = new Heir2();
-        Heir2.myMethod();
+        //Heir2.myMethod();
 
     }
 
