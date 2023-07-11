@@ -1,3 +1,0 @@
-Object created: 20230711_025706
-My method 1 worked: 20230711_025706
-My method 2 worked: 20230711_025706
