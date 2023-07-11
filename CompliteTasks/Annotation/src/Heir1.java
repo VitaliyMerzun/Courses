@@ -14,4 +14,11 @@ class Heir1 extends Parent {
         System.out.println("myMethod2 in Heir1" + num + " " + hour + " " + str);
     }
 
+    public static void main(String[] args) throws NoSuchMethodException{
+
+        Heir1 heir = new Heir1();
+        Method method = heir.getClass().getMethod("myMethod");
+        DataAnn ann = method.getAnnotation(DataAnn.class);
+        myMethod1(ann.hour(), ann.num(), ann.str());
+    }
 }
