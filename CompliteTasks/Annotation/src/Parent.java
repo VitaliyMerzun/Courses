@@ -1,0 +1,6 @@
+
+@InheritedAnnotation("Parent")
+class Parent {
+
+
+}
