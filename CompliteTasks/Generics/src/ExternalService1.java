@@ -5,17 +5,17 @@ public class ExternalService1 implements SomeInterface {
 
     @Override
     public void setRequest() {
-        this.request = true;
+        request = true;
     }
 
     @Override
     public void setInteracted() {
-        this.interacted = true;
+        interacted = true;
     }
 
     @Override
     public void setRespond() {
-        this.respond = true;
+        respond = true;
     }
 
     @Override

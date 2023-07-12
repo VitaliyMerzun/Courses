@@ -5,17 +5,17 @@ public class ExternalService2 implements SomeInterface {
 
     @Override
     public void setRequest() {
-        this.request = "TRUE";
+        request = "TRUE";
     }
 
     @Override
     public void setInteracted() {
-        this.interacted = "TRUE";
+        interacted = "TRUE";
     }
 
     @Override
     public void setRespond() {
-        this.respond = "TRUE";
+        respond = "TRUE";
     }
 
     @Override
@@ -28,7 +28,7 @@ public class ExternalService2 implements SomeInterface {
 
     @Override
     public void getInteracted() {
-        if (request.equals("TRUE"))
+        if (interacted.equals("TRUE"))
             System.out.println("Запрос обработан");
         else
             System.out.println("Запрос не обработан");
@@ -36,7 +36,7 @@ public class ExternalService2 implements SomeInterface {
 
     @Override
     public void getRespond() {
-        if (request.equals("TRUE"))
+        if (respond.equals("TRUE"))
             System.out.println("Запрос завершен");
         else
             System.out.println("Запрос не завершен");
