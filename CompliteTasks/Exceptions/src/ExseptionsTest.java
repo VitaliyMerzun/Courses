@@ -7,7 +7,7 @@ public class ExseptionsTest {
 
 
     @Test
-    public void testSend_NullCardNumber_ThrowsNullArgumentException() {
+    public void testNullArgumentException() {
         BankOnline card = new BankOnline();
         Assertions.assertThrows(NullArgumentException.class, () -> {
             card.send(null, 100.0);
