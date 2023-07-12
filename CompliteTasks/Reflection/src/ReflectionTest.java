@@ -21,7 +21,7 @@ public class ReflectionTest {
         Parent heir1 = ReflectionClass.myMethod(weekdayValue);
         Assertions.assertNotNull(heir1);
 
-        System.out.print("Создан объект: " + heir1.getClass().getSimpleName() + " | ");
+        System.out.println("Создан объект: " + heir1.getClass().getSimpleName());
         Class<?> clazz = heir1.getClass();
 
         List<Method> methodList = new ArrayList<>();
@@ -45,13 +45,13 @@ public class ReflectionTest {
         String actualOutput = output.toString();
         System.out.println(actualOutput);
 
-        String expectedOutput = "Создан объект: Heir1 | " +
-                "myMethod3 in Heir1:  priority = 1 hour =  2 str = Three | " +
-                "DataContainer(num=2, str=Three) | " +
-                "myMethod1 in Heir1:  priority = 7734 hour =  12 str = 12asd | " +
-                "DataContainer(num=12, str=12asd) | " +
-                "myMethod2 in Heir1:  priority = 11111 hour =  12 str = 12asd | " +
-                "DataContainer(num=12, str=12asd) | ";
+        String expectedOutput = "Создан объект: Heir1\r\n" +
+                "myMethod3 in Heir1:  priority = 1 hour =  2 str = Three\r\n" +
+                "DataContainer(num=2, str=Three)\r\n" +
+                "myMethod1 in Heir1:  priority = 7734 hour =  12 str = 12asd\r\n" +
+                "DataContainer(num=12, str=12asd)\r\n" +
+                "myMethod2 in Heir1:  priority = 11111 hour =  12 str = 12asd\r\n" +
+                "DataContainer(num=12, str=12asd)\r\n";
 
         Assertions.assertEquals(expectedOutput, actualOutput);
     }
