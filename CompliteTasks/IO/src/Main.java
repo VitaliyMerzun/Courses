@@ -31,7 +31,7 @@ public class Main {
     }
 
     @Test
-    public void testDataContainerMethods() throws IOException {
+    public void testIO() throws IOException {
         cleanLogDirectory();
 
         DataContainer dataContainer = new DataContainer();
