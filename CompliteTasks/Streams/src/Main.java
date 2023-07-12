@@ -1,7 +1,13 @@
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class Main {
     public static void addStreamContainers(List<StreamContainer> LSC, List<Long> L, List<String> S, int i1, int i2) {
@@ -11,7 +17,14 @@ public class Main {
         }
     }
 
-    public static void main(String[] args) {
+    @Test
+    public void testStreams() {
+
+        ByteArrayOutputStream output = new ByteArrayOutputStream();
+        PrintStream originalOutput = System.out;
+        PrintStream printStream = new PrintStream(output);
+        System.setOut(printStream);
+
         IntStream intStream1 = IntStream.of(15, 42, 3, 6, 77, 10, 25, 92, 18, 67);
         intStream1.filter(n -> n >= 10 && n < 100).sorted().forEach(System.out::println);
 
@@ -44,5 +57,24 @@ public class Main {
         String binString = "1001001110";
         boolean result = binString.chars().mapToObj(c -> c == '1').reduce(true, (a, b) -> a && b);
         System.out.println("Результат: " + result);
+
+        String actualOutput = output.toString();
+
+        String expectedOutput = "10\r\n" +
+                "15\r\n" +
+                "18\r\n" +
+                "25\r\n" +
+                "42\r\n" +
+                "67\r\n" +
+                "77\r\n" +
+                "92\r\n" +
+                "Среднее значение: 35.5\r\n" +
+                streamMap.toString() +"\r\n" +
+                "9\r\n" +
+                "Результат: false\r\n";
+
+
+        Assertions.assertEquals(expectedOutput, actualOutput);
+
     }
 }
