@@ -4,6 +4,10 @@ import lombok.*;
 @NoArgsConstructor
 @Getter@Setter
 public class DataContainer {
+
     int num;
+
     String str;
+
+
 }
