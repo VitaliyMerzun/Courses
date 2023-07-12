@@ -8,17 +8,19 @@ import java.io.PrintStream;
 
 
 public class ReflectionTest {
+
     @Test
-    public static void main(String[] args) throws InvocationTargetException, IllegalAccessException {
+    public void testReflection() throws InvocationTargetException, IllegalAccessException {
         //Перехватывает вывод в консоль
         ByteArrayOutputStream output = new ByteArrayOutputStream();
         PrintStream originalOutput = System.out;
         PrintStream printStream = new PrintStream(output);
         System.setOut(printStream);
-        //Информация берётся из класса Heir2, а создаётся объект класса Heir1
+
         int weekdayValue = ReflectionClass.getWeekdayDate(Heir2.class);
         Parent heir1 = ReflectionClass.myMethod(weekdayValue);
-        assert heir1 != null;
+        Assertions.assertNotNull(heir1);
+
         System.out.println("Создан объект: " + heir1.getClass().getSimpleName());
         Class<?> clazz = heir1.getClass();
 
@@ -43,6 +45,7 @@ public class ReflectionTest {
         String actualOutput = output.toString();
         System.out.println(actualOutput);
         //Да да, именно так
+
         String expectedOutput = actualOutput;
 
         Assertions.assertEquals(expectedOutput, actualOutput);
