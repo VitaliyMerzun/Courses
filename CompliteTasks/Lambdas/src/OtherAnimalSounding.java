@@ -1,10 +1,10 @@
 public class OtherAnimalSounding {
 
     public static void soundDolphin() {
-        System.out.print("Click");
+        System.out.println("Click");
     }
 
     public static void soundOwl() {
-        System.out.print("Hood");
+        System.out.println("Hood");
     }
 }

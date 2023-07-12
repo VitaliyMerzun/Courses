@@ -19,9 +19,9 @@ public class Main {
         animalList.add(new Sounding() {
             @Override
             public void sound() {
-                System.out.print("Croak");
+                System.out.println("Croak");
             }});
-        animalList.add(() -> System.out.print("Quack"));
+        animalList.add(() -> System.out.println("Quack"));
         animalList.add(OtherAnimalSounding::soundOwl);
         animalList.add(OtherAnimalSounding::soundDolphin);
 
@@ -34,12 +34,12 @@ public class Main {
 
         String actualOutput = output.toString();
 
-        String expectedOutput = "Meow" +
-                "Bark" +
-                "Croak" +
-                "Quack" +
-                "Hood" +
-                "Click";
+        String expectedOutput = "Meow\r\n" +
+                "Bark\r\n" +
+                "Croak\r\n" +
+                "Quack\r\n" +
+                "Hood\r\n" +
+                "Click\r\n";
 
         Assertions.assertEquals(expectedOutput, actualOutput);
 
