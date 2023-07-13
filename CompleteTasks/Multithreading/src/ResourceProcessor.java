@@ -1,10 +1,32 @@
 public class ResourceProcessor {
 
-    public static synchronized void decreas(Resource resource) {
-        resource.res--;
+    public static void decreas(Resource resource) {
+        synchronized (resource) {
+            while (resource.res < 1) {
+                try {
+                    resource.wait();
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            resource.res--;
+            System.out.println("Уменьшено до: " + resource.res);
+            resource.notify();
+        }
     }
 
-    public static synchronized void increas(Resource resource) {
-        resource.res++;
+    public static void increas(Resource resource) {
+        synchronized (resource) {
+            while (resource.res >= 5) {
+                try {
+                    resource.wait();
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            resource.res++;
+            System.out.println("Увеличено до: " + resource.res);
+            resource.notify();
+        }
     }
 }
